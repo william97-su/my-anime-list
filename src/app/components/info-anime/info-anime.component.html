@@ -1,19 +1,30 @@
-<div class="result">
-    <img [src]="animeId.images['jpg'].image_url">
+<h3>{{ animeId.title }}</h3>
+<div class="anime-info">
+    <img class="portada" [src]="animeId.images['jpg'].large_image_url">
     <div class="details">
-        <h3>{{ animeId.title }}</h3>
-        <p [title]="animeId.synopsis">{{ animeId.synopsis}}</p>
         <p><strong>Episodes: </strong>{{animeId.episodes}}</p>
+        <p><strong>Aired: </strong>{{animeId.aired.string}}</p>
+        <p><strong>Rating: </strong>{{animeId.rating}}</p>
+        <p><strong>Rank: </strong>{{animeId.rank}}</p>
         <p><strong>Score: </strong>{{animeId.score}}</p>
+        <p><strong>Scored By: </strong>{{animeId.scored_by}}</p>
+        <p><strong>Popularity: </strong>{{animeId.popularity}}</p>
+        <p><strong>Status: </strong>{{animeId.status}}</p>
+        <p><strong>Source: </strong>{{animeId.source}}</p>
+        <p><strong>Season: </strong>{{animeId.season}}</p>
+        <p><strong>Duration: </strong>{{animeId.duration}}</p>
         <span class="flex-1"></span>
-        <button type="button" class="button">Add to My Anime</button>
+        <p *ngIf="!showFullDescription">{{ animeId.synopsis | slice:0:100 }}...</p>
+        <p *ngIf="showFullDescription">{{ animeId.synopsis }}</p>
+        <button class="button" *ngIf="!showFullDescription && animeId.synopsis.length > 100" (click)="showFullDescription = true">Ver
+            más</button>
     </div>
 </div>
-<h3 className="title">Trailer</h3>
-<div *ngIf="animeId.trailer.embed_url" className="trailer-con">
+<h3 class="title">Trailer</h3>
+<div *ngIf="animeId.trailer.embed_url" class="trailer-con">
     <iframe [src]="videoUrl" title="Inline Frame Example" width="800" height="450"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen>
     </iframe>
-    <h3 *ngIf="!animeId.trailer.embed_url" >Trailer not available</h3>
+    <h3 *ngIf="!animeId.trailer.embed_url">Trailer not available</h3>
 </div>

@@ -1,0 +1,38 @@
+h3 {
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #A855F7, #27AE60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+        transform: skew(-3deg);
+    }
+}
+
+.title {
+    display: inline-block;
+    margin: 3rem 0;
+    font-size: 2rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #A855F7 23%, #27AE60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.anime-info {
+	display: flex;
+	margin: 1rem;
+	padding: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	transition: 0.4s;
+}
+.anime-info img.portada{
+	width: 350px;
+    height: 550px;
+	border-radius: 1rem;
+	margin-right: 1rem;
+}

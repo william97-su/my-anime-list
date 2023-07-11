@@ -31,7 +31,9 @@
     <div *ngFor="let anime of anime_results" class="result">
         <img [src]="anime.images['jpg'].image_url">
         <div class="details">
-            <h3>{{ anime.title }}</h3>
+            <a [routerLink]="['/anime', anime.mal_id]">
+                <h3>{{ anime.title }}</h3>
+            </a>
             <p [title]="anime.synopsis">{{ anime.synopsis.slice(0, 120) }}...</p>
             <p><strong>Episodes: </strong>{{anime.episodes}}</p>
             <span class="flex-1"></span>

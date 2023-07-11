@@ -1,4 +1,7 @@
-<form (ngSubmit)="search()">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Search for an anime.." name="search">
-    <button type="submit" class="button">Search</button>
-</form>
+<div class="header">
+    <h1 style="padding-left: 20px;" >MyAnimeList</h1>
+    <form class="search-box" (ngSubmit)="search()">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search your anime" name="search">
+        <button type="submit" class="button">Search</button>
+    </form>
+</div>
