@@ -1,0 +1,19 @@
+<div class="result">
+    <img [src]="animeId.images['jpg'].image_url">
+    <div class="details">
+        <h3>{{ animeId.title }}</h3>
+        <p [title]="animeId.synopsis">{{ animeId.synopsis}}</p>
+        <p><strong>Episodes: </strong>{{animeId.episodes}}</p>
+        <p><strong>Score: </strong>{{animeId.score}}</p>
+        <span class="flex-1"></span>
+        <button type="button" class="button">Add to My Anime</button>
+    </div>
+</div>
+<h3 className="title">Trailer</h3>
+<div *ngIf="animeId.trailer.embed_url" className="trailer-con">
+    <iframe [src]="videoUrl" title="Inline Frame Example" width="800" height="450"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen>
+    </iframe>
+    <h3 *ngIf="!animeId.trailer.embed_url" >Trailer not available</h3>
+</div>

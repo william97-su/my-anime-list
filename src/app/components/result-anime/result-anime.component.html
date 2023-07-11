@@ -1,0 +1,41 @@
+<div *ngIf="anime_results.length > 0" class="container resultsAnime">
+    <div class="anime-row">
+      <div class="row">
+            <div *ngFor="let anime of anime_results" class="card ">
+                <a [routerLink]="['/anime', anime.mal_id]">
+                    <img [src]="anime.images['jpg'].image_url" alt="animeImage" />
+                </a>
+                <div class="anime-info">
+                    <h4>{{ anime.title }}</h4>
+                    <div class="genre-medals">
+                        <div class="genre-medal" *ngFor="let genre of anime.genres">
+                            <p> {{genre.name}}</p>
+                        </div>
+                    </div>
+                    <div class="overlay">
+                        <h4>{{anime.title_japanese}}</h4>
+                        <h3>SYNOPSIS</h3>
+                        <div class="synopsis">
+                            <p>{{anime.synopsis}}</p>
+                        </div>
+                        <div class="mylist">
+                            <p (click)="addAnime(anime)">Add to list +</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+</div>
+<div *ngIf="anime_results.length > 0" class="results">
+    <div *ngFor="let anime of anime_results" class="result">
+        <img [src]="anime.images['jpg'].image_url">
+        <div class="details">
+            <h3>{{ anime.title }}</h3>
+            <p [title]="anime.synopsis">{{ anime.synopsis.slice(0, 120) }}...</p>
+            <p><strong>Episodes: </strong>{{anime.episodes}}</p>
+            <span class="flex-1"></span>
+            <button type="button" (click)="addAnime(anime)" class="button">Add to My Anime</button>
+        </div>
+    </div>
+</div>
